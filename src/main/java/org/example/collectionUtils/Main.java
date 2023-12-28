@@ -97,10 +97,9 @@ public class Main {
 
         System.out.println("\nПроверка метода \"range(List<T> list, T min, T max, Comparator<? super T> comparator)\"");
         List<Integer> rangeSecondCheck = Arrays.asList(8, 1, 3, 5, 6, 4);
-        Comparator<Integer> comparator = Comparator.naturalOrder();
 
         System.out.println("Проверяем массив: " + rangeSecondCheck);
         System.out.println("Диапазон значений должен быть между 3 и 6: " +
-                CollectionUtils.range(rangeSecondCheck, 3, 6, comparator));
+                CollectionUtils.range(rangeSecondCheck, 3, 6, Integer::compareTo));
     }
 }

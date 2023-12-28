@@ -38,9 +38,9 @@ public class CountMapImpl<T> implements CountMap<T> {
     }
 
     @Override
-    public void addAll(CountMap<T> source) {
-        Map<T, Integer> sourceMap = source.toMap();
-        for (Map.Entry<T, Integer> entry : sourceMap.entrySet()) {
+    public void addAll(CountMap<? extends T> source) {
+        Map<? extends T, Integer> sourceMap = source.toMap();
+        for (Map.Entry<? extends T, Integer> entry : sourceMap.entrySet()) {
             T key = entry.getKey();
             int counter = entry.getValue();
             int currentCounter = map.getOrDefault(key, 0);
